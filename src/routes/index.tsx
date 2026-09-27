@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   const [role, setRole] = useState<RoleId>("volunteer");
-  const [event, setEvent] = useState(DISASTER_EVENTS[0]);
+  const [event, setEvent] = useState(DISASTER_EVENTS[0]!);
   const [online, setOnline] = useState(false);
   const [syncing, setSyncing] = useState(false);
   const { queue, pending, enqueue, remove, markAllSynced } = useOfflineQueue();

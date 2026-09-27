@@ -46,7 +46,7 @@ const TONE_CLASS = {
 } as const;
 
 export function CoordinatorView({ pendingCount }: { pendingCount: number }) {
-  const [selectedNeed, setSelectedNeed] = useState(CAMP_NEEDS[0].id);
+  const [selectedNeed, setSelectedNeed] = useState(CAMP_NEEDS[0]!.id);
   const [dupOpen, setDupOpen] = useState(false);
   const [resolved, setResolved] = useState<string[]>([]);
   const [allocated, setAllocated] = useState<string[]>([]);
@@ -59,7 +59,7 @@ export function CoordinatorView({ pendingCount }: { pendingCount: number }) {
     <div className="mx-auto w-full max-w-7xl space-y-5">
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {METRICS.map((m, i) => {
-          const Icon = METRIC_ICONS[i];
+          const Icon = METRIC_ICONS[i] ?? Users;
           const extra = i === 0 ? pendingCount : 0;
           return (
             <Card key={m.label} className="panel border-0">
